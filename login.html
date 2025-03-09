@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            background: url('lime.jpg') no-repeat center center/cover;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        h2{
+            color: white;
+        }
+        .container {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 350px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+        }
+        .input-box {
+            position: relative;
+            margin: 10px 0;
+        }
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 5px;
+            outline: none;
+            background: transparent;
+            color: white;
+        }
+        .input-box input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .error {
+            color: yellow;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: white;
+        }
+        .btn {
+            background: white;
+            color: #5b2c83;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .link {
+            color: yellow;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="container" id="loginForm">
+        <h2>Login</h2>
+        <div class="input-box">
+            <input type="text" id="username" placeholder="Username">
+            <p class="error" id="usernameError">Username is required</p>
+        </div>
+        <div class="input-box">
+            <input type="password" id="password" placeholder="Password">
+            <p class="error" id="passwordError">Password is required</p>
+        </div>
+        <div class="options">
+            <label><input type="checkbox"> Remember me</label>
+            <span class="link" onclick="showForgotPassword()">Forgot Password?</span>
+        </div>
+        <button class="btn" onclick="validateLogin()">Login</button>
+        <p style="color: white;">Don't have an account? <span class="link" onclick="showSignUp()">Sign Up</span></p>
+    </div>
+
+    <!-- Forgot Password -->
+    <div class="container hidden" id="forgotPasswordForm">
+        <h2>Forgot Password</h2>
+        <div class="input-box">
+            <input type="email" id="forgotEmail" placeholder="Enter your email">
+            <p class="error" id="forgotEmailError">Email is required</p>
+        </div>
+        <button class="btn" onclick="resetPassword()">Send Reset Link</button>
+        <p class="link" onclick="showLogin()">Back to Login</p>
+    </div>
+
+    <!-- Sign-Up Form -->
+    <div class="container hidden" id="signUpForm">
+        <h2>Sign Up</h2>
+        <div class="input-box">
+            <input type="text" id="name" placeholder="Full Name">
+            <p class="error" id="nameError">Name is required</p>
+        </div>
+        <div class="input-box">
+            <input type="email" id="email" placeholder="Email">
+            <p class="error" id="emailError">Valid email is required</p>
+        </div>
+        <div class="input-box">
+            <input type="password" id="newPassword" placeholder="Password">
+            <p class="error" id="passwordErrorSignUp">Password is required</p>
+        </div>
+        <div class="input-box">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            <p class="error" id="confirmPasswordError">Passwords do not match</p>
+        </div>
+        <button class="btn" onclick="register()">Sign Up</button>
+        <p class="link" onclick="showLogin()">Back to Login</p>
+    </div>
+
+    <script>
+        function validateLogin() {
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            document.getElementById("usernameError").style.display = username ? "none" : "block";
+            document.getElementById("passwordError").style.display = password ? "none" : "block";
+            if (username && password) alert("Login successful!");
+        }
+
+        function resetPassword() {
+            let email = document.getElementById("forgotEmail").value.trim();
+            document.getElementById("forgotEmailError").style.display = email ? "none" : "block";
+            if (email) alert("Password reset link sent to " + email);
+        }
+
+        function register() {
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("newPassword").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+            document.getElementById("nameError").style.display = name ? "none" : "block";
+            document.getElementById("emailError").style.display = email ? "none" : "block";
+            document.getElementById("passwordErrorSignUp").style.display = password ? "none" : "block";
+            document.getElementById("confirmPasswordError").style.display = password === confirmPassword ? "none" : "block";
+
+            if (name && email && password && password === confirmPassword) alert("Sign-Up successful!");
+        }
+
+        function showLogin() {
+            document.getElementById("loginForm").classList.remove("hidden");
+            document.getElementById("forgotPasswordForm").classList.add("hidden");
+            document.getElementById("signUpForm").classList.add("hidden");
+        }
+
+        function showForgotPassword() {
+            document.getElementById("loginForm").classList.add("hidden");
+            document.getElementById("forgotPasswordForm").classList.remove("hidden");
+        }
+
+        function showSignUp() {
+            document.getElementById("loginForm").classList.add("hidden");
+            document.getElementById("signUpForm").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
