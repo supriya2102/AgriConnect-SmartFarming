@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriConnect - Smart Farming</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #22e7c0, #00130b);
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      background: rgba(20, 56, 51, 0.45); /* glass effect */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+      z-index: 2;
+      border-radius: 0 0 20px 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    #loginBtn {
+      background: white !important;
+      color: #143833 !important;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-box {
+      background: rgba(93, 156, 141, 0.35); /* glass effect */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: white;
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .feature-box h2 {
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    footer {
+      position: relative;
+      z-index: 2;
+      padding: 1rem;
+      background: #143833;
+      color: white;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AgriConnect - Smart Farming Assistant</h1>
+    <nav>
+      <a href="crop-suggestion.html">Crop Suggestion</a>
+      <a href="buy-equipment.html">Buy Equipment</a>
+      <a href="learn-farming.html">Learn Farming</a>
+      <a href="consultation.html">Get Consultation</a>
+      <a href="login.html" id="loginBtn">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="features">
+      <a href="crop-suggestion.html" class="feature-box">
+        <h2>Crop Suggestion</h2>
+        <p>Smart suggestions for your soil and climate!</p>
+      </a>
+      <a href="buy-equipment.html" class="feature-box">
+        <h2>Buy Equipment</h2>
+        <p>Get the best farming tools with ease!</p>
+      </a>
+      <a href="learn-farming.html" class="feature-box">
+        <h2>Learn Farming</h2>
+        <p>Explore tips, tricks, and tutorials!</p>
+      </a>
+      <a href="sustainable-farming.html" class="feature-box">
+        <h2>Sustainable Farming Tracker</h2>
+        <p>Track your farm's sustainability and improve practices!</p>
+      </a>
+      <a href="consultation.html" class="feature-box">
+        <h2>Get Consultation</h2>
+        <p>Connect with expert agronomists today!</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 AgriConnect. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
